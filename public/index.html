@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A secure real-time multiplayer arena. Collect orbs and climb the leaderboard.">
+  <title>Orbital — Multiplayer Arena</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <canvas id="arena" aria-label="Multiplayer game arena"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Orbital home"><span class="brand-mark">✳</span> ORBITAL <span class="brand-sub">ARENA</span></a>
+      <div class="live-pill"><span class="live-dot"></span><span id="online-count">1</span> ONLINE</div>
+      <button class="sound-button" id="help-button" aria-label="Show game controls">?</button>
+    </header>
+    <section class="hud-left">
+      <div class="eyebrow">YOUR SCORE</div>
+      <div class="score-value" id="score">000</div>
+      <div class="score-caption"><span class="sparkle">✦</span> ORBS COLLECTED</div>
+    </section>
+    <section class="leaderboard panel">
+      <div class="panel-heading"><span class="eyebrow">LEADERBOARD</span><span class="trophy">♛</span></div>
+      <ol id="leaderboard"></ol>
+    </section>
+    <div class="map-hint"><span class="map-dot"></span> NEON GARDEN <span class="hint-divider">/</span> <span id="connection-label">CONNECTING</span></div>
+    <div class="toast" id="toast" aria-live="polite"></div>
+    <div class="modal-backdrop" id="welcome">
+      <section class="welcome-card">
+        <div class="welcome-symbol">✳</div>
+        <div class="eyebrow">A REAL-TIME MULTIPLAYER ARENA</div>
+        <h1>Find your<br><em>flow state.</em></h1>
+        <p>Glide through the garden. Gather luminous orbs. Rise above the rest.</p>
+        <form id="join-form"><label for="player-name">YOUR CALLSIGN</label><div class="name-row"><input id="player-name" maxlength="18" autocomplete="nickname" placeholder="Enter a name" required><button type="submit">ENTER ARENA <span>↗</span></button></div></form>
+        <div class="controls-note"><span>WASD</span> or <span>← ↑ ↓ →</span> to move <i>·</i> collect the glowing orbs</div>
+      </section>
+    </div>
+    <div class="controls-chip" id="controls-chip"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> <span>MOVE</span></div>
+    <footer>Built for the curious <span>✦</span> <span class="footer-right">A little light goes a long way</span></footer>
+  </main>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/game.js"></script>
+</body>
+</html>
